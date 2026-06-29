@@ -283,7 +283,7 @@ lazy_static::lazy_static! {
 
 pub fn compute_migration_checksum(payload: &str) -> String {
     let mut hasher = Sha256::new();
-    hasher.update(payload.trim().as_bytes());
+    hasher.update(payload.as_bytes());
     format!("{:x}", hasher.finalize())
 }
 
