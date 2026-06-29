@@ -94,5 +94,5 @@
       "output": "luac unavailable in diagnostic environment"
     }
   ],
-  "pr_note": "Include the encrypted diagnostic logd artifact(s): diagnostic\\build-8ffc48f2-part001.logd, diagnostic\\build-8ffc48f2-part002.logd, diagnostic\\build-8ffc48f2-part003.logd, diagnostic\\build-8ffc48f2-part004.logd. The encrypted .logd is the required diagnostic content for PR review; this JSON file is metadata. Maintainers may ask you to remove these diagnostic artifacts before merging."
+  "pr_note": "Diagnostic artifacts:\n- diagnostic/build-8ffc48f2-part001.logd\n- diagnostic/build-8ffc48f2-part002.logd\n- diagnostic/build-8ffc48f2-part003.logd\n- diagnostic/build-8ffc48f2-part004.logd\n- diagnostic/build-8ffc48f2-part005.logd\n- diagnostic/build-8ffc48f2-part006.logd\n- diagnostic/build-8ffc48f2-part007.logd\n- diagnostic/build-8ffc48f2-part008.logd\n- diagnostic/build-8ffc48f2-part009.logd\n- diagnostic/build-8ffc48f2-part010.logd"
 }
