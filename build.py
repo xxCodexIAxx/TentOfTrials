@@ -525,7 +525,7 @@ def build_diagnostic_report(
     results: list[tuple[str, bool, float, str, Optional[str]]],
     commit_id: str,
     logd_relpaths: Optional[list[str]] = None,
-    password: Optional[str] = None,
+    password_env: str = "DIAGNOSTIC_LOGD_PASSWORD",
     logd_error: Optional[str] = None,
     chunked: bool = False,
     message_blocker: Optional[str] = None,
@@ -550,10 +550,11 @@ def build_diagnostic_report(
         "message_blocker": message_blocker,
         "chunked": chunked,
         "chunk_size_bytes": DIAGNOSTIC_CHUNK_SIZE if chunked else None,
-        "password": password,
+        "password": f"${password_env}" if decrypt_target else None,
+        "password_env": password_env if decrypt_target else None,
         "decrypt_command": (
-            f"encryptly unpack {decrypt_target} <outdir> --password {password}"
-            if decrypt_target and password else None
+            f"encryptly unpack {decrypt_target} <outdir> --password \"${password_env}\""
+            if decrypt_target else None
         ),
         "total_modules": len(results),
         "passed": sum(1 for _, s, _, _, _ in results if s),
@@ -571,6 +572,7 @@ def build_diagnostic_report(
         "pr_note": (
             (f"Include the encrypted diagnostic logd artifact(s): {', '.join(logd_relpaths)}. " if logd_relpaths else "Encrypted diagnostic logd artifact was not created; include this JSON report showing why. ")
             + "The encrypted .logd is the required diagnostic content for PR review; this JSON file is metadata. "
+            + f"Provide the decrypt password at review time through the {password_env} secret; do not commit the plaintext password. "
             + "Maintainers may ask you to remove these diagnostic artifacts before merging."
         ),
     }
@@ -751,7 +753,6 @@ def generate_logd(
                 results,
                 commit_id,
                 logd_relpaths=logd_relpaths,
-                password=safe_pw,
                 chunked=len(logd_files) > 1,
             ),
         )

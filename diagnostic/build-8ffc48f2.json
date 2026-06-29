@@ -17,8 +17,9 @@
   "message_blocker": null,
   "chunked": true,
   "chunk_size_bytes": 16777216,
-  "password": "21318bafce88cf70363d",
-  "decrypt_command": "cat diagnostic/build-8ffc48f2-part001.logd diagnostic/build-8ffc48f2-part002.logd diagnostic/build-8ffc48f2-part003.logd diagnostic/build-8ffc48f2-part004.logd diagnostic/build-8ffc48f2-part005.logd diagnostic/build-8ffc48f2-part006.logd diagnostic/build-8ffc48f2-part007.logd diagnostic/build-8ffc48f2-part008.logd diagnostic/build-8ffc48f2-part009.logd diagnostic/build-8ffc48f2-part010.logd > diagnostic/build-8ffc48f2.logd && encryptly unpack diagnostic/build-8ffc48f2.logd <outdir> --password 21318bafce88cf70363d",
+  "password": "$DIAGNOSTIC_LOGD_PASSWORD",
+  "password_env": "DIAGNOSTIC_LOGD_PASSWORD",
+  "decrypt_command": "cat diagnostic/build-8ffc48f2-part001.logd diagnostic/build-8ffc48f2-part002.logd diagnostic/build-8ffc48f2-part003.logd diagnostic/build-8ffc48f2-part004.logd diagnostic/build-8ffc48f2-part005.logd diagnostic/build-8ffc48f2-part006.logd diagnostic/build-8ffc48f2-part007.logd diagnostic/build-8ffc48f2-part008.logd diagnostic/build-8ffc48f2-part009.logd diagnostic/build-8ffc48f2-part010.logd > diagnostic/build-8ffc48f2.logd && encryptly unpack diagnostic/build-8ffc48f2.logd <outdir> --password \"$DIAGNOSTIC_LOGD_PASSWORD\"",
   "total_modules": 10,
   "passed": 0,
   "failed": 10,
@@ -94,5 +95,5 @@
       "output": "luac unavailable in diagnostic environment"
     }
   ],
-  "pr_note": "Diagnostic artifacts:\n- diagnostic/build-8ffc48f2-part001.logd\n- diagnostic/build-8ffc48f2-part002.logd\n- diagnostic/build-8ffc48f2-part003.logd\n- diagnostic/build-8ffc48f2-part004.logd\n- diagnostic/build-8ffc48f2-part005.logd\n- diagnostic/build-8ffc48f2-part006.logd\n- diagnostic/build-8ffc48f2-part007.logd\n- diagnostic/build-8ffc48f2-part008.logd\n- diagnostic/build-8ffc48f2-part009.logd\n- diagnostic/build-8ffc48f2-part010.logd"
+  "pr_note": "Diagnostic artifacts:\n- diagnostic/build-8ffc48f2-part001.logd\n- diagnostic/build-8ffc48f2-part002.logd\n- diagnostic/build-8ffc48f2-part003.logd\n- diagnostic/build-8ffc48f2-part004.logd\n- diagnostic/build-8ffc48f2-part005.logd\n- diagnostic/build-8ffc48f2-part006.logd\n- diagnostic/build-8ffc48f2-part007.logd\n- diagnostic/build-8ffc48f2-part008.logd\n- diagnostic/build-8ffc48f2-part009.logd\n- diagnostic/build-8ffc48f2-part010.logd\n\nDecrypt password is supplied via DIAGNOSTIC_LOGD_PASSWORD at review time; the plaintext password is intentionally not committed."
 }

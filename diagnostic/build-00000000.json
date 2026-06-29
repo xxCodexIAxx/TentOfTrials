@@ -5,8 +5,9 @@
   "diagnostic_logd_error": null,
   "chunked": false,
   "chunk_size_bytes": null,
-  "password": "4c7df15ab09fbb066197",
-  "decrypt_command": "encryptly unpack diagnostic/build-00000000.logd <outdir> --password 4c7df15ab09fbb066197",
+  "password": "$DIAGNOSTIC_LOGD_PASSWORD",
+  "password_env": "DIAGNOSTIC_LOGD_PASSWORD",
+  "decrypt_command": "encryptly unpack diagnostic/build-00000000.logd <outdir> --password \"$DIAGNOSTIC_LOGD_PASSWORD\"",
   "total_modules": 1,
   "passed": 0,
   "failed": 1,
@@ -19,5 +20,5 @@
       "output": "Command not found: [Errno 2] No such file or directory: 'make'"
     }
   ],
-  "pr_note": "Include this JSON diagnostic report and diagnostic/build-00000000.logd in your PR. Maintainers may ask you to remove these diagnostic artifacts before merging."
+  "pr_note": "Include this JSON diagnostic report and diagnostic/build-00000000.logd in your PR. Decrypt password is supplied via DIAGNOSTIC_LOGD_PASSWORD at review time; the plaintext password is intentionally not committed. Maintainers may ask you to remove these diagnostic artifacts before merging."
 }
